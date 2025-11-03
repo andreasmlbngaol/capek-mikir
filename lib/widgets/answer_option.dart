@@ -44,7 +44,7 @@ class AnswerOption extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             choice,
-            style: const TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 18),
           ),
         ),
       ),

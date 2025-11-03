@@ -41,7 +41,9 @@ class _QuizContent extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               "Soal ${quiz.currentIndex + 1} / ${quiz.questions.length}",
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: TextStyle(fontWeight: FontWeight.w600,
+              color: Theme.of(context).colorScheme.primary
+              ),
             ),
             actions: [
               Padding(
@@ -83,6 +85,7 @@ class _QuizContent extends StatelessWidget {
                                       ?.copyWith(
                                     fontWeight: FontWeight.w600,
                                     height: 1.4,
+                                    fontSize: 28
                                   ),
                                 ),
                                 const SizedBox(height: AppTheme.spacingXl),
@@ -93,13 +96,21 @@ class _QuizContent extends StatelessWidget {
                                   MainAxisAlignment.spaceBetween,
                                   children: [
                                     Expanded(
-                                      child: OutlinedButton.icon(
-                                        style: AppTheme.outlinedButtonStyle,
+                                      child: FilledButton.icon(
+                                        style: AppTheme.filledButtonStyle.copyWith(
+                                            backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+                                            foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onTertiary)
+                                        ),
                                         onPressed: quiz.isFirst
                                             ? null
                                             : quiz.previousQuestion,
                                         icon: const Icon(Icons.arrow_back),
-                                        label: const Text("Kembali"),
+                                        label: const Text(
+                                            "Kembali",
+                                          style: TextStyle(
+                                            fontSize: 18
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(width: AppTheme.spacingMd),
@@ -113,7 +124,11 @@ class _QuizContent extends StatelessWidget {
                                         }
                                             : quiz.nextQuestion,
                                         label: Text(
-                                            quiz.isLast ? "Selesai" : "Lanjut"),
+                                            quiz.isLast ? "Selesai" : "Lanjut",
+                                          style: TextStyle(
+                                            fontSize: 18
+                                          ),
+                                        ),
                                         icon: const Icon(Icons.arrow_forward),
                                       ),
                                     ),

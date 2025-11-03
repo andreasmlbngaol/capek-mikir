@@ -24,4 +24,4 @@ flutter:
   fonts:
     - family: Delius
       fonts:
-      - asset: assets/fonts/Delius-Regular.ttf
+        - asset: assets/fonts/Delius-Regular.ttf

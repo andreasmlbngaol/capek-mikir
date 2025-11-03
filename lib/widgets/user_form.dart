@@ -29,12 +29,14 @@ class _UserFormWidgetState extends State<UserFormWidget> {
             'Capek Mikir',
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
               fontWeight: FontWeight.bold,
+              fontSize: 48
             ),
           ),
           Text(
             'Isi dulu data diri terus pilih kategori untuk mulai',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Theme.of(context).colorScheme.onSurfaceVariant,
+              fontSize: 20
             ),
             textAlign: TextAlign.center,
           ),
@@ -88,11 +90,11 @@ class _UserFormWidgetState extends State<UserFormWidget> {
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(
-                  vertical: AppTheme.spacingMd,
+                  vertical: AppTheme.spacingSm,
                 ),
                 child: Text(
                   "Gaskan",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 20),
                 ),
               ),
             ),

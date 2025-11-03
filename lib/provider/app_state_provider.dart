@@ -12,8 +12,8 @@ class AppStateProvider extends ChangeNotifier {
   static const int _quizTime = 180; // 3 menit dalam detik
 
   // ==== STATE ====
-  final List<Question> _questions = [];
-  final Map<int, String?> _answers = {}; // index -> jawaban user
+    final List<Question> _questions = [];
+    final Map<int, String?> _answers = {}; // index -> jawaban user
 
   int _currentIndex = 0;
   int _score = 0;
