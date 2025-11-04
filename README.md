@@ -20,6 +20,7 @@ Aplikasi kuis sederhana yang dibuat dengan Flutter.
 *   **Skor dan Solusi:** Pengguna dapat melihat skor dan meninjau jawaban yang benar.
 *   **Tampilan Responsif:** Layar kuis dan solusi akan menyesuaikan tata letak (compact & expanded view) untuk perangkat berlayar sempit dan lebar.
 *   **Light and Dark Theme:** Pengguna dapat memakai tema terang atau gelap yang menyesuaikan dengan sistem perangkat.
+*   **Dynamic Color Scheme:** Tema warna aplikasi akan berubah sesuai warna tema (wallpaper) dari pengguna.
 
 ## Screenshot & Video Aplikasi
 
