@@ -19,6 +19,7 @@ Aplikasi kuis sederhana yang dibuat dengan Flutter.
 *   **Batas Waktu:** Setiap sesi kuis memiliki batas waktu 3 menit.
 *   **Skor dan Solusi:** Pengguna dapat melihat skor dan meninjau jawaban yang benar.
 *   **Tampilan Responsif:** Layar kuis dan solusi akan menyesuaikan tata letak (compact & expanded view) untuk perangkat berlayar sempit dan lebar.
+*   **Light and Dark Theme:** Pengguna dapat memakai tema terang atau gelap yang menyesuaikan dengan sistem perangkat.
 
 ## Screenshot & Video Aplikasi
 
@@ -50,7 +51,7 @@ Aplikasi kuis sederhana yang dibuat dengan Flutter.
   <i>(Pratinjau di atas adalah file GIF. Untuk video lengkap dengan suara, klik link di bawah)</i>
 </p>
 
-[**--> Lihat Video Demo Lengkap (MP4) <--**](docs/demo.mp4)
+[**Lihat Video Demo Lengkap (MP4)**](docs/demo.mp4)
 
 
 ## Link Mockup/Prototype
@@ -113,4 +114,4 @@ Untuk menjalankan proyek ini, pastikan Anda telah menginstal Flutter di lingkung
 *   [flutter](https://flutter.dev/)
 *   [provider](https://pub.dev/packages/provider)
 *   [go_router](https://pub.dev/packages/go_router)
-*   [shared_preferences](https://pub.dev/packages/shared_preferences)
+*   [google_fonts](https://pub.dev/packages/google_fonts)
