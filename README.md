@@ -95,11 +95,11 @@ Untuk menjalankan proyek ini, pastikan Anda telah menginstal Flutter di lingkung
 
 1.  **Clone repositori:**
     ```bash
-    git clone https://github.com/andreasmlbngaol/capek_mikir.git
+    git clone https://github.com/andreasmlbngaol/capek-mikir.git
     ```
 2.  **Masuk ke direktori proyek:**
     ```bash
-    cd capek_mikir
+    cd capek-mikir
     ```
 3.  **Instal dependensi:**
     ```bash
