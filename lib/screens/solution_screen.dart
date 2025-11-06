@@ -25,9 +25,11 @@ class _SolutionScreenState extends State<SolutionScreen> {
         title: const Text("Review Jawaban"),
         centerTitle: true,
       ),
-      body: isWide
-          ? _buildWideLayout(context, quiz)
-          : _buildNarrowLayout(context, quiz),
+      body: SafeArea(
+        child: isWide
+            ? _buildWideLayout(context, quiz)
+            : _buildNarrowLayout(context, quiz),
+      ),
     );
   }
 

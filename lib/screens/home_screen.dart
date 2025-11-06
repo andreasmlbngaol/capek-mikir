@@ -8,13 +8,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: AppTheme.spacingXxl,
-          vertical: AppTheme.spacingXl,
-        ),
-        child: Center(
-          child: const UserFormWidget(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppTheme.spacingXxl,
+            vertical: AppTheme.spacingXl,
+          ),
+          child: Center(
+            child: const UserFormWidget(),
+          ),
         ),
       ),
     );

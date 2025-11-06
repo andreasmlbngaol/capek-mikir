@@ -35,7 +35,6 @@ class _UserFormWidgetState extends State<UserFormWidget> {
           Text(
             'Isi dulu data diri terus pilih kategori untuk mulai',
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
               fontSize: 20
             ),
             textAlign: TextAlign.center,
@@ -64,7 +63,7 @@ class _UserFormWidgetState extends State<UserFormWidget> {
               });
             },
           ),
-          const SizedBox(height: AppTheme.spacingLg),
+          const SizedBox(height: AppTheme.spacingMd),
           SizedBox(
             width: double.infinity,
             child: FilledButton(

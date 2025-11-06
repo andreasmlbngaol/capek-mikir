@@ -41,8 +41,9 @@ class _QuizContent extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               "Soal ${quiz.currentIndex + 1} / ${quiz.questions.length}",
-              style: TextStyle(fontWeight: FontWeight.w600,
-              color: Theme.of(context).colorScheme.primary
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Theme.of(context).colorScheme.primary
               ),
             ),
             actions: [
@@ -59,106 +60,107 @@ class _QuizContent extends StatelessWidget {
                 ),
             ],
           ),
-          body: Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: const EdgeInsets.all(AppTheme.spacingLg),
-                  child: LayoutBuilder(
-                    builder: (context, constraints) {
-                      return SingleChildScrollView(
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: constraints.maxHeight,
-                          ),
-                          child: IntrinsicHeight(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  question.problem,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge
-                                      ?.copyWith(
-                                    fontWeight: FontWeight.w600,
-                                    height: 1.4,
-                                    fontSize: 28
+          body: SafeArea(
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(AppTheme.spacingLg),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        return SingleChildScrollView(
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: constraints.maxHeight,
+                            ),
+                            child: IntrinsicHeight(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    question.problem,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleLarge
+                                        ?.copyWith(
+                                      fontWeight: FontWeight.w600,
+                                      height: 1.4,
+                                      fontSize: 28
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(height: AppTheme.spacingXl),
-                                ..._buildChoices(context, quiz, question),
-                                const Spacer(),
-                                Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Expanded(
-                                      child: FilledButton.icon(
-                                        style: AppTheme.filledButtonStyle.copyWith(
-                                            backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
-                                            foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onTertiary)
-                                        ),
-                                        onPressed: quiz.isFirst
-                                            ? null
-                                            : quiz.previousQuestion,
-                                        icon: const Icon(Icons.arrow_back),
-                                        label: const Text(
-                                            "Kembali",
-                                          style: TextStyle(
-                                            fontSize: 18
+                                  const SizedBox(height: AppTheme.spacingXl),
+                                  ..._buildChoices(context, quiz, question),
+                                  const Spacer(),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: FilledButton.icon(
+                                          style: AppTheme.filledButtonStyle.copyWith(
+                                              backgroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.tertiary),
+                                              foregroundColor: WidgetStateProperty.all(Theme.of(context).colorScheme.onTertiary)
+                                          ),
+                                          onPressed: quiz.isFirst
+                                              ? null
+                                              : quiz.previousQuestion,
+                                          icon: const Icon(Icons.arrow_back),
+                                          label: const Text(
+                                              "Kembali",
+                                            style: TextStyle(
+                                              fontSize: 18
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(width: AppTheme.spacingMd),
-                                    Expanded(
-                                      child: FilledButton.icon(
-                                        style: AppTheme.filledButtonStyle,
-                                        onPressed: quiz.isLast
-                                            ? () {
-                                          quiz.calculateScore();
-                                          context.go(AppRoutes.score);
-                                        }
-                                            : quiz.nextQuestion,
-                                        label: Text(
-                                            quiz.isLast ? "Selesai" : "Lanjut",
-                                          style: TextStyle(
-                                            fontSize: 18
+                                      const SizedBox(width: AppTheme.spacingMd),
+                                      Expanded(
+                                        child: FilledButton.icon(
+                                          style: AppTheme.filledButtonStyle,
+                                          onPressed: quiz.isLast
+                                              ? () {
+                                            quiz.calculateScore();
+                                            context.go(AppRoutes.score);
+                                          }
+                                              : quiz.nextQuestion,
+                                          label: Text(
+                                              quiz.isLast ? "Selesai" : "Lanjut",
+                                            style: TextStyle(
+                                              fontSize: 18
+                                            ),
                                           ),
+                                          icon: const Icon(Icons.arrow_forward),
                                         ),
-                                        icon: const Icon(Icons.arrow_forward),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-              if (isWide)
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  child: Container(
-                    padding: const EdgeInsets.all(AppTheme.spacingLg),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        left: BorderSide(
-                          color: Theme.of(context).colorScheme.outline,
+                if (isWide)
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: Container(
+                      padding: const EdgeInsets.all(AppTheme.spacingLg),
+                      decoration: BoxDecoration(
+                        border: Border(
+                          left: BorderSide(
+                            color: Theme.of(context).colorScheme.outline,
+                          ),
                         ),
                       ),
+                      child: QuestionSidebar(quiz: quiz),
                     ),
-                    child: QuestionSidebar(quiz: quiz),
                   ),
-                ),
-            ],
+              ],
+            ),
           ),
         );
       },

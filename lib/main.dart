@@ -30,15 +30,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicColorBuilder(
-      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-        final lightColorScheme = enableDynamicColor && lightDynamic != null ? lightDynamic : _defaultLightColorScheme;
-        final darkColorScheme = enableDynamicColor && darkDynamic != null ? darkDynamic : _defaultDarkColorScheme;
+      builder: (dynamicLightColorScheme, dynamicDarkColorScheme) {
+        final lightColorScheme = enableDynamicColor &&
+            dynamicLightColorScheme != null
+            ? dynamicLightColorScheme
+            : _defaultLightColorScheme;
+        final darkColorScheme = enableDynamicColor &&
+            dynamicDarkColorScheme != null
+            ? dynamicDarkColorScheme
+            : _defaultDarkColorScheme;
 
         return MultiProvider(
             providers: [
               ChangeNotifierProvider(create: (_) => UserStateProvider()),
               ChangeNotifierProxyProvider<UserStateProvider, AppStateProvider>(
-                create: (context) => AppStateProvider(context.read<UserStateProvider>()),
+                create: (context) =>
+                    AppStateProvider(context.read<UserStateProvider>()),
                 update: (context, userProvider, appState) {
                   appState ??= AppStateProvider(userProvider);
                   appState.restartQuiz(userProvider);
@@ -47,18 +54,18 @@ class MyApp extends StatelessWidget {
               ),
             ],
             child: MaterialApp.router(
-              title: "Capek Mikir",
-              theme: ThemeData(
-                  fontFamily: "Delius",
-                  colorScheme: lightColorScheme
-              ),
-              darkTheme: ThemeData(
-                  fontFamily: "Delius",
-                  colorScheme: darkColorScheme
-              ),
-              routerConfig: createRouter(),
-              debugShowCheckedModeBanner: false,
-              themeMode: ThemeMode.system,
+                title: "Capek Mikir",
+                theme: ThemeData(
+                    fontFamily: "Delius",
+                    colorScheme: lightColorScheme
+                ),
+                darkTheme: ThemeData(
+                    fontFamily: "Delius",
+                    colorScheme: darkColorScheme
+                ),
+                routerConfig: createRouter(),
+                debugShowCheckedModeBanner: false,
+                themeMode: ThemeMode.system
             )
         );
       },
