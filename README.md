@@ -1,118 +1,224 @@
-# Capek Mikir
+<div align="center">
 
-Aplikasi kuis sederhana yang dibuat dengan Flutter.
+# Capek Mikir 🧠❓
 
-## Informasi Mahasiswa
+**A clean, responsive Flutter quiz app — pick a category, beat the timer, then review every answer with explanations.**
 
-- **Nama:** Andreas Manatar Lumban Gaol
-- **NIM:** 221401067
-- **KOM:** B
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev/)
+[![Provider](https://img.shields.io/badge/State-Provider-4FC08D?style=for-the-badge)](https://pub.dev/packages/provider)
+[![go_router](https://img.shields.io/badge/Routing-go__router-0553B1?style=for-the-badge)](https://pub.dev/packages/go_router)
+[![Material 3](https://img.shields.io/badge/Material%203-Dynamic%20Color-757575?style=for-the-badge&logo=materialdesign&logoColor=white)](https://m3.material.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639?style=for-the-badge)](./LICENSE)
 
-## Tentang Aplikasi (Deskripsi)
+</div>
 
-**Capek Mikir** adalah aplikasi kuis yang menguji pengetahuan pengguna dalam berbagai kategori. Aplikasi ini dibuat sebagai proyek untuk Ujian Tengah Semester (UTS).
+Capek Mikir is a lightweight **quiz application built with Flutter**. Players enter
+their name, choose a category, and answer 10 randomly drawn questions against a
+countdown timer. When time runs out (or all questions are answered), the app
+scores the session and lets the player review each question alongside the correct
+solution and an explanation. It runs from a single codebase across mobile,
+desktop, and the web, with an adaptive layout and Material 3 dynamic theming.
 
-## Fitur
+---
 
-*   **Kuis Berbasis Kategori:** Pengguna dapat memilih dari beberapa kategori kuis.
-*   **Pertanyaan Acak:** Setiap sesi kuis mengambil 10 pertanyaan secara acak.
-*   **Batas Waktu:** Setiap sesi kuis memiliki batas waktu 3 menit.
-*   **Skor dan Solusi:** Pengguna dapat melihat skor dan meninjau jawaban yang benar.
-*   **Tampilan Responsif:** Layar kuis dan solusi akan menyesuaikan tata letak (compact & expanded view) untuk perangkat berlayar sempit dan lebar.
-*   **Light and Dark Theme:** Pengguna dapat memakai tema terang atau gelap yang menyesuaikan dengan sistem perangkat.
-*   **Dynamic Color Scheme:** Tema warna aplikasi akan berubah sesuai warna tema (wallpaper) dari pengguna.
+## Table of Contents
 
-## Screenshot & Video Aplikasi
+- [Overview](#overview)
+- [Features](#features)
+- [Screenshots & Demo](#screenshots--demo)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [How It Works](#how-it-works)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Run](#run)
+  - [Build](#build)
+- [CI/CD](#cicd)
+- [License](#license)
 
-### Screenshots
+---
 
-#### 1. Home Screen
+## Overview
+
+Capek Mikir keeps the quiz experience simple and focused. Each session pulls a
+fresh, shuffled set of questions (and shuffles the answer choices too), so no two
+plays feel the same. A three-minute timer adds a bit of pressure, and the
+post-quiz solution view turns every mistake into a learning moment with built-in
+explanations.
+
+The app is fully responsive: the quiz and solution screens switch between a
+**compact** layout for narrow screens and an **expanded** layout (with a question
+sidebar) for wider ones. It also embraces Material 3 — following the system
+light/dark mode and adopting **dynamic color** from the device wallpaper where
+supported.
+
+## Features
+
+| Feature | Description |
+|---|---|
+| **🗂️ Category-based quizzes** | Choose from several categories before starting a session. |
+| **🎲 Randomized questions** | Each session draws **10 random questions**, with answer choices shuffled too. |
+| **⏱️ Timed sessions** | A **3-minute** countdown auto-submits the quiz when time runs out. |
+| **📊 Score & solution review** | See your score, then review every question with the correct answer and an explanation. |
+| **📱 Responsive layout** | Quiz and solution screens adapt between compact (narrow) and expanded (wide) views. |
+| **🌓 Light & dark theme** | Automatically follows the device's system theme. |
+| **🎨 Dynamic color** | Material 3 color scheme adapts to the user's wallpaper (where supported). |
+| **🖥️ Multiplatform** | One codebase for Android, iOS, Web, Linux, macOS, and Windows. |
+
+## Screenshots & Demo
+
+### Home
+
+<div align="center">
 <img src="docs/home.png" alt="Home Screen" height="450">
+</div>
 
-#### 2. Quiz Screen (Responsive)
-|                    Compact View (Layar Sempit)                    |                     Expanded View (Layar Lebar)                     |
-|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|
-| <img src="docs/quiz_compact.png" alt="Quiz Compact" height="400"> | <img src="docs/quiz_expanded.png" alt="Quiz Expanded" height="400"> |
+### Quiz (responsive)
 
-#### 3. Score Screen
+| Compact (narrow screens) | Expanded (wide screens) |
+|:---:|:---:|
+| <img src="docs/quiz_compact.png" alt="Quiz — compact view" height="380"> | <img src="docs/quiz_expanded.png" alt="Quiz — expanded view" height="380"> |
+
+### Score
+
+<div align="center">
 <img src="docs/score.png" alt="Score Screen" height="450">
+</div>
 
-#### 4. Solution Screen (Responsive)
-|                        Compact View (Layar Sempit)                        |                         Expanded View (Layar Lebar)                         |
-|:-------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
-| <img src="docs/solution_compact.png" alt="Solution Compact" height="400"> | <img src="docs/solution_expanded.png" alt="Solution Expanded" height="400"> |
+### Solution (responsive)
 
+| Compact (narrow screens) | Expanded (wide screens) |
+|:---:|:---:|
+| <img src="docs/solution_compact.png" alt="Solution — compact view" height="380"> | <img src="docs/solution_expanded.png" alt="Solution — expanded view" height="380"> |
 
-### Video Demo
+### Video demo
 
-<p align="center">
-  <img src="docs/demo.gif" alt="Video Demo Aplikasi" width="300">
-</p>
-<p align="center">
-  <i>(Pratinjau di atas adalah file GIF. Untuk video lengkap dengan suara, klik link di bawah)</i>
-</p>
+<div align="center">
+<img src="docs/demo.gif" alt="App demo" width="300">
+<br>
+<i>The preview above is a GIF — for the full video with sound, see the link below.</i>
+<br>
+<a href="docs/demo.mp4"><b>▶ Watch the full demo (MP4)</b></a>
+</div>
 
-[**Lihat Video Demo Lengkap (MP4)**](docs/demo.mp4)
+## Tech Stack
 
+- **Flutter** (Dart SDK `^3.9.2`) — cross-platform UI framework.
+- **Provider** — state management via `ChangeNotifier` (`UserStateProvider`, `AppStateProvider`).
+- **go_router** — declarative, named-route navigation (Home, Quiz, Score, Solution).
+- **google_fonts** — typography, with the bundled **Delius** font asset.
+- **dynamic_color** — Material 3 dynamic color schemes derived from the system/wallpaper.
+- **Material 3** — theming, light/dark mode, and adaptive components.
 
-## Link Mockup/Prototype
+## Architecture
 
-- **Aplikasi Web:** [Capek Mikir](https://capek-mikir.sanalab.live)
+Capek Mikir follows a simple, layered structure. The UI (**screens** and reusable
+**widgets**) observes **providers** that hold all quiz and user state, while
+**models** and a static **data** source define the questions. Routing is
+centralized with go_router and theming lives in a dedicated config layer.
 
+```mermaid
+flowchart TB
+    subgraph UI["Presentation"]
+        SCREENS["Screens: Home → Quiz → Score → Solution"]
+        WIDGETS["Reusable widgets (timer, sidebar, options, forms)"]
+        ROUTER["go_router"]
+        THEME["Theme + dynamic color"]
+    end
 
-## Credit Aset
+    subgraph State["State (Provider)"]
+        USER["UserStateProvider — name & category"]
+        APP["AppStateProvider — questions, answers, timer, score"]
+    end
 
-*Seluruh aset yang digunakan dalam proyek ini adalah buatan sendiri atau berasal dari sumber daya open-source yang tidak memerlukan atribusi.*
+    subgraph Domain["Data & Models"]
+        MODELS["Question, Categories"]
+        DATA["Static question bank"]
+    end
 
-## Struktur Proyek
-
+    SCREENS --> WIDGETS
+    ROUTER -.-> SCREENS
+    THEME -.-> SCREENS
+    SCREENS --> APP
+    SCREENS --> USER
+    APP --> USER
+    APP --> MODELS
+    APP --> DATA
 ```
+
+## How It Works
+
+1. **Home** — the player enters a name and selects a category (`UserStateProvider` stores both).
+2. **Start** — `AppStateProvider` loads the category's question bank, shuffles it, takes **10 questions**, shuffles each question's choices, and starts the **3-minute timer**.
+3. **Quiz** — the player navigates between questions (next/previous or via the sidebar on wide screens) and selects answers; selections are tracked per question.
+4. **Scoring** — when the timer hits zero or the quiz is submitted, the app compares answers to the correct solutions and computes the score.
+5. **Solution** — the player reviews each question with the correct answer highlighted and an explanation shown.
+
+## Project Structure
+
+A high-level view of the `lib/` directory:
+
+```text
 lib/
-├── config/
-│   ├── app_theme.dart     # Tema dan styling aplikasi
-│   └── router.dart        # Konfigurasi routing aplikasi
-├── data/
-│   └── questions_list.dart # Daftar pertanyaan kuis
-├── models/
-│   ├── categories.dart    # Enum untuk kategori kuis
-│   └── question.dart      # Model data untuk pertanyaan
-├── provider/
-│   ├── app_state_provider.dart # State management untuk logika kuis
-│   └── user_state_provider.dart # State management untuk data pengguna
-├── screens/
-│   ├── home_screen.dart     # Tampilan utama aplikasi
-│   ├── quiz_screen.dart     # Tampilan saat kuis berlangsung
-│   ├── score_screen.dart    # Tampilan skor setelah kuis
-│   └── solution_screen.dart # Tampilan untuk melihat solusi
-├── widgets/
-│   └── ...                # Berisi berbagai widget kustom
-└── main.dart              # Titik masuk utama aplikasi
+├─ config/      # App theme & go_router configuration
+├─ data/        # Static quiz question bank
+├─ models/      # Question & category models
+├─ provider/    # Provider state (user + quiz/app state)
+├─ screens/     # Home, Quiz, Score, Solution screens
+├─ widgets/     # Reusable UI components
+└─ main.dart    # App entry point (theming, providers, router)
 ```
 
-## Memulai
+Platform runners for Android, iOS, Web, Linux, macOS, and Windows live in their
+respective top-level folders, with shared assets (fonts) under `assets/`.
 
-Untuk menjalankan proyek ini, pastikan Anda telah menginstal Flutter di lingkungan pengembangan Anda.
+## Getting Started
 
-1.  **Clone repositori:**
-    ```bash
-    git clone https://github.com/andreasmlbngaol/capek-mikir.git
-    ```
-2.  **Masuk ke direktori proyek:**
-    ```bash
-    cd capek-mikir
-    ```
-3.  **Instal dependensi:**
-    ```bash
-    flutter pub get
-    ```
-4.  **Jalankan aplikasi:**
-    ```bash
-    flutter run
-    ```
+### Prerequisites
 
-## Dependensi
+- **Flutter SDK** installed and configured (Dart SDK `^3.9.2`).
+- A target device or emulator (mobile, desktop, or a browser).
 
-*   [flutter](https://flutter.dev/)
-*   [provider](https://pub.dev/packages/provider)
-*   [go_router](https://pub.dev/packages/go_router)
-*   [google_fonts](https://pub.dev/packages/google_fonts)
+### Run
+
+```bash
+# Clone the repository
+git clone https://github.com/andreasmlbngaol/capek-mikir.git
+cd capek-mikir
+
+# Install dependencies
+flutter pub get
+
+# Run on your selected device
+flutter run
+```
+
+### Build
+
+```bash
+flutter build apk        # Android
+flutter build ios        # iOS
+flutter build web        # Web
+flutter build linux      # Linux
+flutter build macos      # macOS
+flutter build windows    # Windows
+```
+
+## CI/CD
+
+The project includes a **GitHub Actions** workflow
+(`.github/workflows/deploy.yml`) that, on every push to `master` (ignoring
+docs-only and README changes):
+
+- sets up the **Flutter** SDK (stable channel),
+- installs dependencies and builds the release **Flutter Web** bundle (`flutter build web --release`), and
+- deploys the build output to a server over SSH/SCP.
+
+## License
+
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE)
+file for details.
+
+© 2025 andreasmlbngaol
