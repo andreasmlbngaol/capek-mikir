@@ -1,0 +1,23 @@
+# Build outputs
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Platform folders not needed for the web build
+android/
+ios/
+linux/
+macos/
+windows/
+
+# VCS / IDE / docs
+.git/
+.github/
+.idea/
+.vscode/
+docs/
+*.iml
+
+# Misc
+.DS_Store
